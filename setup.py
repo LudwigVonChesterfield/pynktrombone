@@ -5,9 +5,9 @@ setup(
     version='1.0',
     packages=['pynkTrombone'],
     # package_dir={'': '.idea'},
-    url='https://github.com/dkadish/pynktrombone',
-    license='',
-    author='David Kadish',
-    author_email='david.kadish@gmail.com',
+    url='https://github.com/Geson-anko/pynktrombone',
+    license='MIT',
+    author='Yasuhiro Shimomura',
+    author_email='22yasuhiro22.work@gmail.com',
     description='Python port of PinkTrombone code'
 )
