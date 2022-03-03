@@ -3,6 +3,7 @@ import numba
 from numba.experimental import jitclass
 from numba import int32, float64, boolean, int64
 from collections import OrderedDict
+import typing
 
 spec = OrderedDict()
 spec["position"] = int32
@@ -45,7 +46,7 @@ class TransientPool:
         Prepair invalid transients.
         """
         self.pool: list[Transient] = [Transient(i) for i in range(MAX_TRANSIENTS)]
-        fi = [*range(MAX_TRANSIENTS)]
+        fi = list(range(MAX_TRANSIENTS))
         fi.reverse()
         self.free_ids = fi
 
@@ -86,5 +87,5 @@ class TransientPool:
     def size(self) -> int:
         return MAX_TRANSIENTS - len(self.free_ids)
 
-    def get_valid_transients(self) -> list[Transient]:
+    def get_valid_transients(self) -> typing.List[Transient]:
         return [t for t in self.pool if not t.is_free]
